@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="Fader" type="Sprite"]
+
+[node name="AnimationPlayerIn" type="AnimationPlayer" parent="."]
+
+[node name="AnimationPlayerOut" type="AnimationPlayer" parent="."]

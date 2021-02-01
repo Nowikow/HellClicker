@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Table.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Haus/table.png" type="Texture" id=2]
+
+[node name="TableSprite" type="Sprite"]
+position = Vector2( 825.619, 1540.72 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Table" type="ScrollContainer" parent="."]
+margin_left = -826.0
+margin_top = -349.0
+margin_right = 254.0
+margin_bottom = 456.0
+focus_mode = 1
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="HBoxContainer" parent="Table"]
+custom_constants/separation = 0
+[connection signal="scroll_ended" from="Table" to="." method="_on_Table_scroll_ended"]
+[connection signal="scroll_started" from="Table" to="." method="_on_Table_scroll_started"]

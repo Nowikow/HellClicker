@@ -1,0 +1,98 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Sprites/Haus/fire_burning.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Haus/pot.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Kotel.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Haus/pot_liquid.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Jija.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/PotSmoke.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Haus/pot_smoke_animation.png" type="Texture" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 1270, 351 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1270, 0, 1270, 351 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 2540, 0, 1270, 351 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 1000, 844 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 1000, 0, 1000, 844 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 2000, 0, 1000, 844 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 3000, 0, 1000, 844 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Kotel" type="TextureButton"]
+margin_left = 70.0
+margin_top = 1532.0
+margin_right = 1012.0
+margin_bottom = 2072.0
+rect_pivot_offset = Vector2( 470, 250 )
+disabled = true
+texture_normal = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 541.518 ]
+}
+
+[node name="Jija" type="Sprite" parent="."]
+modulate = Color( 0.278431, 0.584314, 0.196078, 1 )
+position = Vector2( 466.832, 127.344 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Tween" type="Tween" parent="Jija"]
+
+[node name="Burn" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 480.872, 294.996 )
+frames = SubResource( 4 )
+playing = true
+
+[node name="PotSmoke" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 472.194, -0.696777 )
+frames = SubResource( 9 )
+script = ExtResource( 6 )
+
+[node name="KotelTween" type="Tween" parent="."]
+[connection signal="animation_finished" from="PotSmoke" to="PotSmoke" method="_on_PotSmoke_animation_finished"]

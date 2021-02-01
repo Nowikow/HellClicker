@@ -1,0 +1,126 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Sprites/Language/Choose_language_rus.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Language/Choose_language_english_click.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Language/Choose_language_english.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Language/Choose_language_rus_click.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/SelectLanguageScreen.gd" type="Script" id=5]
+[ext_resource path="res://Font/SourceSerifPro-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scenes/Fader.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 90
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 90
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "In"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Out"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Control" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="RussianLanguageButton" type="TextureButton" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.03979
+margin_top = 702.175
+margin_right = 494.04
+margin_bottom = 1038.18
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnglishLanguageButton" type="TextureButton" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 565.046
+margin_top = 708.905
+margin_right = 1054.05
+margin_bottom = 1044.91
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+stretch_mode = 3
+
+[node name="RussianOption" type="Label" parent="."]
+modulate = Color( 0.92549, 0.792157, 0.541176, 1 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 50.0693
+margin_top = 1030.1
+margin_right = 428.069
+margin_bottom = 1186.1
+custom_fonts/font = SubResource( 1 )
+text = "Русский"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnglishOption" type="Label" parent="."]
+modulate = Color( 0.92549, 0.792157, 0.541176, 1 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 663.029
+margin_top = 1040.92
+margin_right = 973.029
+margin_bottom = 1179.92
+custom_fonts/font = SubResource( 2 )
+text = "English"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fader" parent="." instance=ExtResource( 7 )]
+
+[node name="AnimationPlayerIn" parent="Fader" index="0"]
+anims/In = SubResource( 3 )
+
+[node name="AnimationPlayerOut" parent="Fader" index="1"]
+anims/Out = SubResource( 4 )
+[connection signal="pressed" from="RussianLanguageButton" to="." method="_on_RussianLanguageButton_pressed"]
+[connection signal="pressed" from="EnglishLanguageButton" to="." method="_on_EnglishLanguageButton_pressed"]
+[connection signal="animation_finished" from="Fader/AnimationPlayerOut" to="." method="_on_AnimationPlayerOut_animation_finished"]
+
+[editable path="Fader"]

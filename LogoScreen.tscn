@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/vertical_coscom.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/LogoScreen.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Fader.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "In"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="LogoScreen" type="Node2D"]
+modulate = Color( 1, 1, 1, 0 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.8 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fader" parent="." instance=ExtResource( 3 )]
+
+[node name="AnimationPlayerIn" parent="Fader" index="0"]
+anims/In = SubResource( 1 )
+
+[node name="AnimationPlayerOut" parent="Fader" index="1"]
+anims/Out = SubResource( 2 )
+[connection signal="animation_finished" from="Fader/AnimationPlayerIn" to="." method="_on_AnimationPlayerIn_animation_finished"]
+[connection signal="animation_finished" from="Fader/AnimationPlayerOut" to="." method="_on_AnimationPlayerOut_animation_finished"]
+
+[editable path="Fader"]

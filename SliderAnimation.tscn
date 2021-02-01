@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="SliderAnimation" type="Node2D"]
+
+[node name="In" type="AnimationPlayer" parent="."]
+
+[node name="Out" type="AnimationPlayer" parent="."]

@@ -1,0 +1,289 @@
+[gd_scene load_steps=52 format=2]
+
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_werewolf.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_sullen_mouth.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_pork_nickle.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Peasant man/basic/peasant_ears.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Peasant man/basic/peasant_head.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_shining_eyes.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_amulet.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_blissful_smile.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Peasant man/basic/peasant_eyes.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_wreath.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_possessed_eyes.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_clover.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_zombie_ears.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Peasant man/basic/peasant_body.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Peasant man/basic/peasant_mouth.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_vampire_fangs.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Peasant man/basic/peasant_neck.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_white_clothes.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_leprosy.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_wings.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_nimbus.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_cross.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_zombie_head.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Peasant man/basic/peasant_nose.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_zombie_nose.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_goat_horns.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_zombie_neck.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Peasant man/curses/peasant_curse_aura.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Peasant man/blessings/peasant_scripture_page.png" type="Texture" id=29]
+[ext_resource path="res://Scenes/Smoke.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scripts/PeasantPrototypeMan.gd" type="Script" id=32]
+[ext_resource path="res://Scripts/PartOfBody.gd" type="Script" id=33]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 8 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="PeasantPrototypeMan" type="Area2D"]
+position = Vector2( -371.58, 800.096 )
+script = ExtResource( 32 )
+
+[node name="PartOfBody" type="Node2D" parent="."]
+script = ExtResource( 33 )
+
+[node name="Aura" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( -21, -188 )
+frames = SubResource( 1 )
+
+[node name="Wings" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( -5, -160.181 )
+frames = SubResource( 2 )
+
+[node name="Neck" type="AnimatedSprite" parent="PartOfBody"]
+position = Vector2( 5.01395, -206.336 )
+frames = SubResource( 3 )
+
+[node name="Body" type="AnimatedSprite" parent="PartOfBody"]
+frames = SubResource( 4 )
+
+[node name="Head" type="AnimatedSprite" parent="PartOfBody"]
+position = Vector2( 4.54739, -395.345 )
+frames = SubResource( 5 )
+
+[node name="Nose" type="AnimatedSprite" parent="PartOfBody"]
+position = Vector2( 1.49829, -382.068 )
+frames = SubResource( 6 )
+
+[node name="Eye" type="AnimatedSprite" parent="PartOfBody"]
+position = Vector2( -0.13532, -438.967 )
+frames = SubResource( 7 )
+
+[node name="Ears" type="AnimatedSprite" parent="PartOfBody"]
+position = Vector2( -1.78381, -409.682 )
+frames = SubResource( 8 )
+
+[node name="Mouth" type="AnimatedSprite" parent="PartOfBody"]
+position = Vector2( 7.49155, -301.16 )
+frames = SubResource( 9 )
+
+[node name="Teeths" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( 7.49155, -291.635 )
+frames = SubResource( 10 )
+
+[node name="Hat" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( 2.66968, -563.564 )
+frames = SubResource( 11 )
+
+[node name="Horns" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( 0, -632.396 )
+frames = SubResource( 12 )
+
+[node name="NeckTrinket" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( -8, -167.01 )
+frames = SubResource( 13 )
+
+[node name="FaceAddition" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( -2, -317 )
+frames = SubResource( 14 )
+
+[node name="FaceHair" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( 2, -341.826 )
+frames = SubResource( 15 )
+
+[node name="BodyTrinket" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( 157.948, -96.8528 )
+frames = SubResource( 16 )
+
+[node name="Cross" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( 4, -106 )
+frames = SubResource( 17 )
+
+[node name="Nimb" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( 0, -638 )
+frames = SubResource( 18 )
+
+[node name="Paper" type="AnimatedSprite" parent="PartOfBody"]
+visible = false
+position = Vector2( -250, -46 )
+frames = SubResource( 19 )
+
+[node name="ManCollision" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -325.025, -39.4133, -312.326, -90.2101, -248.83, -156.881, -220.256, -194.979, -163.11, -214.028, -159.935, -255.3, -137.711, -271.174, -150.411, -325.146, -150.411, -385.467, -144.061, -480.711, -118.663, -534.683, -90.0893, -534.683, -36.1176, -560.081, 30.5533, -560.081, 100.399, -525.158, 132.147, -528.333, 148.021, -471.187, 144.846, -439.439, 144.846, -369.593, 163.895, -331.495, 119.448, -271.174, 144.846, -261.65, 173.419, -229.902, 173.419, -204.503, 294.062, -77.5109, 303.586, -10.84, 306.761, 36.782, 367.083, 239.97, 376.607, 328.864, -366.297, 322.514, -372.647, 274.892, -372.647, 224.096, -340.899, 144.725, -321.85, 78.0545, -334.549, 24.0828 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Smoke" parent="." instance=ExtResource( 30 )]
+[connection signal="tree_exited" from="." to="." method="_on_PeasantPrototypeMan_tree_exited"]

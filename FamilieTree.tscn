@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/Haus/menu_burger.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/ButtonMenuPrototype.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/FamilieTree.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/WitchContainer.gd" type="Script" id=6]
+
+[node name="FamilieTree" type="TextureRect"]
+margin_left = -2.52002
+margin_right = 37.48
+margin_bottom = 40.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 6.0
+margin_right = 1086.0
+margin_bottom = 1920.0
+scroll_horizontal_enabled = false
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WitchContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_constants/separation = 0
+
+[node name="Tween" type="Tween" parent="ScrollContainer"]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="MenuButton" parent="GUI" instance=ExtResource( 3 )]
+margin_left = 834.068
+margin_top = 5.03967
+margin_right = 1078.07
+margin_bottom = 249.04
+rect_pivot_offset = Vector2( 120, 120 )
+texture_normal = ExtResource( 2 )
+
+[node name="MainMenu" parent="." instance=ExtResource( 5 )]
+modulate = Color( 1, 1, 1, 1 )
+margin_left = 2.51978
+margin_top = -1937.76
+margin_right = 1082.52
+margin_bottom = -17.7585
+[connection signal="pressed" from="GUI/MenuButton" to="." method="_on_MenuButton_pressed"]

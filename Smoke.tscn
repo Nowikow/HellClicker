@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/Haus/smoke_peasant_transformation.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Smoke.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 1260, 1164 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1260, 0, 1260, 1164 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 2520, 0, 1260, 1164 )
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[node name="Smoke" type="AnimatedSprite"]
+visible = false
+position = Vector2( 5.23792, -143.385 )
+frames = SubResource( 23 )
+script = ExtResource( 2 )
