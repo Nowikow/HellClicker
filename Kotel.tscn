@@ -67,7 +67,6 @@ margin_bottom = 2072.0
 rect_pivot_offset = Vector2( 470, 250 )
 disabled = true
 texture_normal = ExtResource( 2 )
-texture_disabled = ExtResource( 2 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false,

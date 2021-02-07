@@ -49,7 +49,7 @@
 [ext_resource path="res://Sprites/Family Tree/Constructor/nose_3.png" type="Texture" id=47]
 [ext_resource path="res://Sprites/Family Tree/Constructor/hat_6.png" type="Texture" id=48]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 9 ), ExtResource( 1 ) ],
 "loop": true,
@@ -57,7 +57,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 23 ), ExtResource( 10 ), ExtResource( 24 ) ],
 "loop": true,
@@ -65,7 +65,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 17 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 26 ) ],
 "loop": true,
@@ -73,7 +73,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 11 ), ExtResource( 27 ), ExtResource( 43 ), ExtResource( 45 ), ExtResource( 48 ) ],
 "loop": true,
@@ -81,7 +81,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 46 ), ExtResource( 44 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 39 ), ExtResource( 34 ) ],
 "loop": true,
@@ -89,7 +89,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 40 ), ExtResource( 37 ), ExtResource( 47 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 29 ) ],
 "loop": true,
@@ -97,7 +97,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 35 ), ExtResource( 42 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 41 ) ],
 "loop": true,
@@ -105,7 +105,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=8]
 size = 35
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
@@ -128,7 +128,7 @@ texture = ExtResource( 3 )
 [node name="Body" type="AnimatedSprite" parent="FrameBg/WitchConstructor"]
 position = Vector2( 16.6108, 66.9245 )
 scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 
 [node name="Frame" type="Sprite" parent="FrameBg/WitchConstructor"]
 texture = ExtResource( 2 )
@@ -136,47 +136,48 @@ texture = ExtResource( 2 )
 [node name="Face" type="AnimatedSprite" parent="FrameBg/WitchConstructor"]
 position = Vector2( 19.0702, -72.0436 )
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 4 )
+frames = SubResource( 2 )
 
 [node name="Hair" type="AnimatedSprite" parent="FrameBg/WitchConstructor"]
 position = Vector2( 9.18054, -106.651 )
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 5 )
+frames = SubResource( 3 )
 
 [node name="Hat" type="AnimatedSprite" parent="FrameBg/WitchConstructor"]
 position = Vector2( 10.5898, -250.748 )
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 6 )
+frames = SubResource( 4 )
 
 [node name="Eyes" type="AnimatedSprite" parent="FrameBg/WitchConstructor"]
 position = Vector2( 18.9515, -96.8759 )
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 7 )
+frames = SubResource( 5 )
 
 [node name="Nose" type="AnimatedSprite" parent="FrameBg/WitchConstructor"]
 position = Vector2( 18.9513, -76.8057 )
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Mund" type="AnimatedSprite" parent="FrameBg/WitchConstructor"]
 position = Vector2( 20.0703, -1.65002 )
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 9 )
+frames = SubResource( 7 )
 
 [node name="Text" type="Sprite" parent="."]
 position = Vector2( 550.635, 1170.95 )
 texture = ExtResource( 4 )
 
 [node name="TextLabel" type="Label" parent="Text"]
-margin_left = -200.0
-margin_top = -81.0
-margin_right = 212.0
-margin_bottom = 81.0
-custom_fonts/font = SubResource( 2 )
+margin_left = -201.189
+margin_top = -92.8921
+margin_right = 211.811
+margin_bottom = -14.8921
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Text"
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

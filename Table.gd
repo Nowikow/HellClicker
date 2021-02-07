@@ -36,19 +36,3 @@ func _on_Table_scroll_ended():
 
 func _on_Table_scroll_started():
 	StartPosition=$Table.get_h_scroll()
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

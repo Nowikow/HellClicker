@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Ingridients/round_light.png" type="Texture" id=1]
+
+[node name="LightIngrid" type="Light2D"]
+position = Vector2( 131.148, 74.4173 )
+texture = ExtResource( 1 )

@@ -1,0 +1,232 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Sprites/Ingridients/black_lamb.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Ingridients/indulgence.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/ButtonMenuPrototype.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Shop/store_table.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Shop/store_board.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Shop/store_background.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/ShopButtonPrototype.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Haus/menu_burger.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/Shop.gd" type="Script" id=11]
+[ext_resource path="res://Font/SourceSerifPro-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Sprites/Haus/coin.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Shop/store_buy_button.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/CoinsCoven.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/GoatAmmountShop.gd" type="Script" id=16]
+[ext_resource path="res://Scripts/IndulgAmmountShop.gd" type="Script" id=17]
+[ext_resource path="res://Sprites/Shop/pandora/pandora_box_animation7psd.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Shop/pandora/pandora_box_animation4.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Shop/pandora/pandora_box_animation6.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Shop/pandora/pandora_box_animation1.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Shop/pandora/pandora_box_animation3.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Shop/pandora/pandora_box_animation8.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Shop/pandora/pandora_box_animation2.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Shop/pandora/pandora_box_animation5.png" type="Texture" id=25]
+[ext_resource path="res://Scenes/LightIngrid.tscn" type="PackedScene" id=26]
+
+[sub_resource type="AnimatedTexture" id=1]
+flags = 4
+frames = 8
+oneshot = true
+fps = 9.0
+frame_0/texture = ExtResource( 21 )
+frame_1/texture = ExtResource( 24 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 22 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 19 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 25 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 20 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 18 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 23 )
+frame_7/delay_sec = 0.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 65
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 45
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 12 )
+
+[node name="Shop" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 7 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Table" type="Sprite" parent="."]
+position = Vector2( 541.683, 1100.81 )
+texture = ExtResource( 4 )
+
+[node name="GoatHead" parent="Table" instance=ExtResource( 8 )]
+margin_left = -505.917
+margin_top = -124.591
+margin_right = -235.917
+margin_bottom = 75.4086
+rect_pivot_offset = Vector2( 135, 120 )
+texture_normal = ExtResource( 1 )
+
+[node name="AmmountBoard" parent="Table/GoatHead" index="1"]
+position = Vector2( 226.53, 20.7653 )
+
+[node name="AmmountLabel" parent="Table/GoatHead/AmmountBoard" index="0"]
+script = ExtResource( 16 )
+
+[node name="LightIngrid" parent="Table/GoatHead" instance=ExtResource( 26 )]
+position = Vector2( 134.848, 89.8984 )
+color = Color( 1, 0, 0, 1 )
+
+[node name="PandoraStartPosition" type="Position2D" parent="Table"]
+position = Vector2( 5.49803, -203.922 )
+
+[node name="PandoraBox" parent="Table" instance=ExtResource( 8 )]
+margin_left = -145.145
+margin_top = -190.493
+margin_right = 164.855
+margin_bottom = 120.507
+texture_normal = ExtResource( 21 )
+texture_disabled = SubResource( 1 )
+
+[node name="PriceBoard" parent="Table/PandoraBox" index="0"]
+position = Vector2( 141.794, 317.647 )
+
+[node name="AmmountBoard" parent="Table/PandoraBox" index="1"]
+visible = false
+
+[node name="Indulgence" parent="Table" instance=ExtResource( 8 )]
+margin_left = 226.53
+margin_top = -124.591
+margin_right = 496.53
+margin_bottom = 62.4086
+texture_normal = ExtResource( 2 )
+
+[node name="AmmountBoard" parent="Table/Indulgence" index="1"]
+position = Vector2( 231.306, 25.0918 )
+
+[node name="AmmountLabel" parent="Table/Indulgence/AmmountBoard" index="0"]
+script = ExtResource( 17 )
+
+[node name="LightIngrid" parent="Table/Indulgence" instance=ExtResource( 26 )]
+position = Vector2( 130.067, 84.1367 )
+z_as_relative = false
+color = Color( 0, 0, 1, 1 )
+
+[node name="Board" type="Sprite" parent="."]
+position = Vector2( 541.945, 1580.45 )
+texture = ExtResource( 6 )
+
+[node name="DescriptionNode" type="Node2D" parent="Board"]
+visible = false
+
+[node name="Name" type="Label" parent="Board/DescriptionNode"]
+margin_left = -443.0
+margin_top = -211.0
+margin_right = 436.0
+margin_bottom = -104.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Тестовое имя"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="Board/DescriptionNode"]
+margin_left = -389.0
+margin_top = -87.0
+margin_right = 390.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Здесь находится тестовое описание"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuyButton" parent="Board/DescriptionNode" instance=ExtResource( 3 )]
+margin_left = -127.135
+margin_top = 89.135
+margin_right = 122.865
+margin_bottom = 217.135
+rect_pivot_offset = Vector2( 125, 60 )
+texture_normal = ExtResource( 14 )
+
+[node name="Price" type="Label" parent="Board/DescriptionNode/BuyButton"]
+margin_left = 20.0
+margin_top = 19.0
+margin_right = 231.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Купить"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gui" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="Gui" instance=ExtResource( 10 )]
+margin_left = -2.9967
+margin_top = -1950.8
+margin_right = 1077.0
+margin_bottom = -30.7961
+
+[node name="ButtonMenuPrototype" parent="Gui" instance=ExtResource( 3 )]
+margin_left = 834.497
+margin_top = 1.43875
+margin_right = 1078.5
+margin_bottom = 245.439
+rect_pivot_offset = Vector2( 120, 120 )
+texture_normal = ExtResource( 9 )
+
+[node name="Coin" type="Sprite" parent="Gui"]
+position = Vector2( 98.4189, 115.244 )
+texture = ExtResource( 13 )
+
+[node name="CoinLabel" type="Label" parent="Gui/Coin"]
+margin_left = 91.6697
+margin_top = -40.9865
+margin_right = 246.67
+margin_bottom = 46.0135
+custom_fonts/font = SubResource( 5 )
+text = "999"
+valign = 1
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Table/GoatHead" to="." method="ItemPresser" binds= [ "GoatHead" ]]
+[connection signal="pressed" from="Table/PandoraBox" to="." method="ItemPresser" binds= [ "Pandora" ]]
+[connection signal="pressed" from="Table/Indulgence" to="." method="ItemPresser" binds= [ "Indulgence" ]]
+[connection signal="pressed" from="Board/DescriptionNode/BuyButton" to="." method="_on_BuyButton_pressed"]
+[connection signal="pressed" from="Gui/ButtonMenuPrototype" to="." method="_on_ButtonMenuPrototype_pressed"]
+
+[editable path="Table/GoatHead"]
+
+[editable path="Table/PandoraBox"]
+
+[editable path="Table/Indulgence"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/ShopButtonPandora.gd" type="Script" id=1]
+[ext_resource path="res://Font/SourceSerifPro-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/Shop/amount_circle.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/LightIngrid.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 2 )
+
+[node name="ShopButtonPandora" type="TextureButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Ammount" type="Sprite" parent="."]
+position = Vector2( 179.774, -67.3954 )
+texture = ExtResource( 3 )
+
+[node name="AmmountLabel" type="Label" parent="Ammount"]
+margin_left = -30.6818
+margin_top = -25.4773
+margin_right = 28.3182
+margin_bottom = 29.5227
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "121"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightIngrid" parent="." instance=ExtResource( 4 )]
+[connection signal="pressed" from="." to="." method="_on_ShopButtonPandora_pressed"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

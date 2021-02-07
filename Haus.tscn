@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Scenes/Fader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Haus/karma.png" type="Texture" id=2]
@@ -14,14 +14,19 @@
 [ext_resource path="res://Scenes/Haus.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Kotel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/ClockSmoke.gd" type="Script" id=14]
-[ext_resource path="res://Scenes/Table.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sprites/EventModule/board_dialog.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/Coin.gd" type="Script" id=16]
 [ext_resource path="res://Sprites/Haus/sandclock_smoke_animation.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Haus/coin_turning.png" type="Texture" id=18]
 [ext_resource path="res://Scripts/Mana.gd" type="Script" id=19]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/TestLabel.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/LabelPrototype.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scripts/Karma.gd" type="Script" id=22]
+[ext_resource path="res://Scenes/ParallaxTable.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Sprites/EventModule/hand_up.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/EventModule/hand_down.png" type="Texture" id=25]
+[ext_resource path="res://Scenes/LightIngrid.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Sprites/Haus/barrel.png" type="Texture" id=27]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -149,6 +154,10 @@ animations = [ {
 size = 40
 font_data = ExtResource( 9 )
 
+[sub_resource type="StyleBoxEmpty" id=28]
+
+[sub_resource type="StyleBoxEmpty" id=29]
+
 [sub_resource type="Animation" id=25]
 tracks/0/type = "value"
 tracks/0/path = NodePath("..:modulate")
@@ -177,16 +186,24 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=27]
+size = 70
+font_data = ExtResource( 9 )
+
 [node name="Haus" type="TextureRect"]
 pause_mode = 1
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource( 5 )
 script = ExtResource( 12 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 1461.59 ],
 "_edit_use_anchors_": false
 }
+
+[node name="Barrel" type="Sprite" parent="."]
+position = Vector2( 936.913, 1033.05 )
+texture = ExtResource( 27 )
 
 [node name="Gui" type="CanvasLayer" parent="."]
 
@@ -245,12 +262,14 @@ __meta__ = {
 }
 
 [node name="Mana" type="ProgressBar" parent="Gui"]
-margin_left = 899.0
-margin_top = 755.0
-margin_right = 1343.0
-margin_bottom = 871.0
+margin_left = 909.091
+margin_top = 758.364
+margin_right = 1353.09
+margin_bottom = 874.364
 rect_rotation = -90.0
-value = 90.0
+custom_styles/fg = SubResource( 28 )
+custom_styles/bg = SubResource( 29 )
+value = 100.0
 percent_visible = false
 script = ExtResource( 19 )
 __meta__ = {
@@ -258,25 +277,29 @@ __meta__ = {
 }
 
 [node name="ManaButton" parent="Gui/Mana" instance=ExtResource( 6 )]
-margin_left = -195.434
-margin_top = -40.4262
-margin_right = 0.566528
-margin_bottom = 195.574
+margin_left = -65.2671
+margin_top = -56.3002
+margin_right = 130.733
+margin_bottom = 179.7
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 100, 100 )
 texture_normal = ExtResource( 10 )
 script = ExtResource( 8 )
 
+[node name="LightIngrid" parent="Gui/Mana/ManaButton" instance=ExtResource( 26 )]
+position = Vector2( 89.8755, 106.165 )
+color = Color( 0.87451, 0.686275, 0.333333, 1 )
+energy = 2.0
+
 [node name="TestLabel" parent="Gui/Mana" instance=ExtResource( 21 )]
-margin_left = -221.0
-margin_top = -49.0
-margin_right = -7.0
-margin_bottom = 20.0
+margin_left = -113.057
+margin_top = -71.2236
+margin_right = 100.943
+margin_bottom = -2.22363
 rect_rotation = 90.0
 
 [node name="MainMenu" parent="Gui" instance=ExtResource( 20 )]
 pause_mode = 2
-modulate = Color( 1, 1, 1, 1 )
 margin_top = -1931.59
 margin_bottom = -11.59
 
@@ -306,7 +329,7 @@ position = Vector2( 551, 1235 )
 [node name="Fourth" type="Position2D" parent="CatPosition"]
 position = Vector2( 827, 1234 )
 
-[node name="TableSprite" parent="." instance=ExtResource( 15 )]
+[node name="Table" parent="." instance=ExtResource( 23 )]
 
 [node name="Kotel" parent="." instance=ExtResource( 13 )]
 
@@ -331,14 +354,55 @@ one_shot = true
 [node name="CatTimer" type="Timer" parent="TimerNode"]
 wait_time = 5.0
 one_shot = true
+
+[node name="Pause" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="PauseNode" type="Node2D" parent="Pause"]
+visible = false
+
+[node name="PauseBoard" type="Sprite" parent="Pause/PauseNode"]
+position = Vector2( 542.387, 889.994 )
+texture = ExtResource( 15 )
+
+[node name="Warning" type="Label" parent="Pause/PauseNode/PauseBoard"]
+margin_left = -488.003
+margin_top = -233.98
+margin_right = 492.997
+margin_bottom = -41.9797
+custom_fonts/font = SubResource( 27 )
+custom_colors/font_color = Color( 0.960784, 0.933333, 0.854902, 1 )
+text = "Выйти в меню (Вы начнёте игру новой ведьмой)?"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" parent="Pause/PauseNode" instance=ExtResource( 6 )]
+margin_left = 713.194
+margin_top = 881.004
+margin_right = 916.194
+margin_bottom = 1092.0
+texture_normal = ExtResource( 24 )
+
+[node name="No" parent="Pause/PauseNode" instance=ExtResource( 6 )]
+margin_left = 170.807
+margin_top = 888.991
+margin_right = 373.807
+margin_bottom = 1099.99
+texture_normal = ExtResource( 25 )
 [connection signal="animation_finished" from="Gui/Clock/ClockSmoke" to="Gui/Clock/ClockSmoke" method="_on_ClockSmoke_animation_finished"]
 [connection signal="animation_finished" from="Gui/Coin" to="Gui/Coin" method="_on_Coin_animation_finished"]
 [connection signal="pressed" from="Gui/Mana/ManaButton" to="Gui/Mana" method="_on_ManaButton_pressed"]
 [connection signal="pressed" from="Gui/ButtonMenu" to="." method="_on_ButtonMenu_pressed"]
-[connection signal="ThrowIntoKotel" from="TableSprite" to="." method="_on_TableSprite_ThrowIntoKotel"]
+[connection signal="ThrowIntoKotel" from="Table" to="." method="_on_Table_ThrowIntoKotel"]
 [connection signal="pressed" from="Kotel" to="." method="_on_Kotel_pressed"]
 [connection signal="animation_finished" from="Fader/AnimationPlayerIn" to="." method="_on_AnimationPlayerIn_animation_finished"]
 [connection signal="timeout" from="TimerNode/PeasantTimer" to="." method="_on_PeasantTimer_timeout"]
 [connection signal="timeout" from="TimerNode/CatTimer" to="." method="_on_CatTimer_timeout"]
+[connection signal="pressed" from="Pause/PauseNode/Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="Pause/PauseNode/No" to="." method="_on_No_pressed"]
 
 [editable path="Fader"]

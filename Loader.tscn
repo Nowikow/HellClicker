@@ -18,12 +18,15 @@ font_data = ExtResource( 2 )
 [node name="LoaderSprite" type="AnimatedSprite"]
 frames = SubResource( 1 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 537.657 ]
+}
 
 [node name="LoadingText" type="RichTextLabel" parent="."]
-margin_left = 306.027
-margin_top = 1122.01
-margin_right = 841.027
-margin_bottom = 1272.01
+margin_left = 375.409
+margin_top = 1117.75
+margin_right = 697.409
+margin_bottom = 1267.75
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[shake rate=5 level=10] Загрузка...

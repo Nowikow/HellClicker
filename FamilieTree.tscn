@@ -40,6 +40,14 @@ margin_bottom = 249.04
 rect_pivot_offset = Vector2( 120, 120 )
 texture_normal = ExtResource( 2 )
 
+[node name="Button" type="Button" parent="GUI"]
+margin_left = -2.52002
+margin_right = 165.48
+margin_bottom = 126.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MainMenu" parent="." instance=ExtResource( 5 )]
 modulate = Color( 1, 1, 1, 1 )
 margin_left = 2.51978
@@ -47,3 +55,4 @@ margin_top = -1937.76
 margin_right = 1082.52
 margin_bottom = -17.7585
 [connection signal="pressed" from="GUI/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="GUI/Button" to="." method="_on_Button_pressed"]

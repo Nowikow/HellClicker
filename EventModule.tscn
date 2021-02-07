@@ -1,55 +1,106 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Scenes/SliderAnimation.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Font/SourceSerifPro-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Sprites/EventPersons/inquisitor.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Shop/store_board.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/EventPersons/devil.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/EventPersons/supreme_witch.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/AnswerPaper.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/EventModule/board_dialog.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/EventModule/board_dialog_paper.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/EventModule.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/EventModule/hand_up.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/EventModule/hand_down.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/EventPerson.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/EventModule/inquisitor.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Hands.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/EventModule/devil.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/EventModule/supreme_witch.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/EventPaper.gd" type="Script" id=12]
+[ext_resource path="res://Font/SourceSerifPro-Regular.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "Devil",
+"name": "Inquisitor",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Inq",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "Witch",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Devil",
+"speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=2]
-size = 80
-font_data = ExtResource( 2 )
-
-[sub_resource type="Animation" id=3]
-resource_name = "SlideIn"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("..:position")
+[sub_resource type="Animation" id=2]
+length = 0.8
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Board:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -533.969, 656.867 ), Vector2( 533.969, 656.867 ) ]
+"points": PoolRealArray( -1104, -0.25, 0, 0.21, 458.201, 0, -0.39, 326.056, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Board:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1250, -0.25, 0, 0.25, 0, 1250, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.8 )
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Board:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1150, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.6 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Board:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1250, -0.25, 0, 0.25, 0, 1250, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.6 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("AnswerPaper:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 70, -0.25, 0, 0.25, 0, 1100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("AnswerPaper:rect_position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1305, -0.25, 0, 0.25, 0, 1305, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "SlideOut"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("..:position")
+tracks/0/path = NodePath("EventPaper:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -58,28 +109,112 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 533.969, 656.867 ), Vector2( 1601.91, 656.867 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("EventPaper:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 70, -0.25, 0, 0.25, 0, 70, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("EventPaper:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1500, -0.25, 0, 0.11, -160.416, 1305, -0.22, -194.385, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
 }
 
-[node name="EventModule" type="AnimatedSprite"]
-position = Vector2( -533.969, 656.867 )
+[sub_resource type="DynamicFont" id=5]
+size = 60
+font_data = ExtResource( 13 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 467.126, 189.915 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 60
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+font_data = ExtResource( 13 )
+
+[node name="EventModule" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="EventPerson" type="AnimatedSprite" parent="."]
+position = Vector2( -1100.47, -80.519 )
 frames = SubResource( 1 )
-animation = "Devil"
+animation = "Inquisitor"
+centered = false
+script = ExtResource( 7 )
 
-[node name="BoardArea" type="Area2D" parent="."]
+[node name="Tween" type="Tween" parent="EventPerson"]
 
-[node name="BoardBg" type="Sprite" parent="BoardArea"]
-position = Vector2( 8.47607, 936.565 )
-texture = ExtResource( 4 )
+[node name="EPAnimationIn" type="AnimationPlayer" parent="."]
+anims/AnimIn = SubResource( 2 )
 
-[node name="Label" type="Label" parent="BoardArea/BoardBg"]
-margin_left = -415.476
-margin_top = -237.565
-margin_right = 408.524
-margin_bottom = 204.435
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Я завис=("
+[node name="EPAnimationOut" type="AnimationPlayer" parent="."]
+anims/AnimOut = SubResource( 3 )
+
+[node name="Board" type="Sprite" parent="."]
+position = Vector2( -1104, 1250 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="PaperIn" type="AnimationPlayer" parent="."]
+anims/AnimIn = SubResource( 4 )
+
+[node name="Hands" parent="." instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 948.233, 1496.79 )
+
+[node name="TextureButton" parent="Hands" index="0"]
+margin_left = -99.3949
+margin_top = -102.958
+margin_right = 103.605
+margin_bottom = 108.042
+rect_pivot_offset = Vector2( 101.443, 120.753 )
+texture_normal = ExtResource( 5 )
+
+[node name="Hands2" parent="." instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 155.458, 1508.9 )
+
+[node name="TextureButton" parent="Hands2" index="0"]
+margin_left = -103.633
+margin_top = -102.958
+margin_right = 99.3672
+margin_bottom = 108.042
+rect_pivot_offset = Vector2( 101.739, 76.8579 )
+texture_normal = ExtResource( 6 )
+
+[node name="EventPaper" type="KinematicBody2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 70, 1500 )
+script = ExtResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="EventPaper"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Tween" type="Tween" parent="EventPaper"]
+
+[node name="Label" type="Label" parent="EventPaper"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 78.0
+margin_top = 65.9977
+margin_right = 852.0
+margin_bottom = 378.998
+custom_fonts/font = SubResource( 5 )
 align = 1
 valign = 1
 autowrap = true
@@ -87,16 +222,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BoardArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EventPaper"]
+position = Vector2( 483.115, 199.179 )
+shape = SubResource( 6 )
+
+[node name="AnswerPaper" type="TextureButton" parent="."]
+margin_left = 70.0
+margin_top = 1305.0
+margin_right = 1029.0
+margin_bottom = 1738.0
+texture_normal = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="AnswerPaper"]
+
+[node name="Label" type="Label" parent="AnswerPaper"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 106.0
+margin_top = 82.0
+margin_right = 862.0
+margin_bottom = 357.0
+custom_fonts/font = SubResource( 7 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Effect" type="Label" parent="."]
 visible = false
-polygon = PoolVector2Array( -493.826, 1239.32, -502.302, 633.305, 514.783, 641.78, 527.496, 1256.27 )
+margin_right = 268.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 9 )
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="is_key_answer" from="." to="AnswerPaper" method="_on_EventModule_is_key_answer"]
+[connection signal="Exit" from="EventPerson" to="." method="_on_EventPerson_Exit"]
+[connection signal="tween_all_completed" from="EventPerson/Tween" to="EventPerson" method="_on_Tween_tween_all_completed"]
+[connection signal="animation_finished" from="EPAnimationIn" to="." method="_on_EPAnimationIn_animation_finished"]
+[connection signal="event_paper_out" from="EventPaper" to="." method="_on_EventPaper_event_paper_out"]
+[connection signal="pressed" from="AnswerPaper" to="AnswerPaper" method="_on_AnswerPaper_pressed"]
 
-[node name="SliderAnimation" parent="." instance=ExtResource( 1 )]
+[editable path="Hands"]
 
-[node name="In" parent="SliderAnimation" index="0"]
-anims/SlideIn = SubResource( 3 )
-
-[node name="Out" parent="SliderAnimation" index="1"]
-anims/SlideOut = SubResource( 4 )
-
-[editable path="SliderAnimation"]
+[editable path="Hands2"]

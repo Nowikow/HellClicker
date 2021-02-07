@@ -4,7 +4,7 @@ func _process(_delta):
 	$CoinText.text=str(Global.Coin)
 
 func AddSomeGold(number):
-	Global.Coin+=number
+	Global.Coin+=number+number*Global.CoinBoost
 
 	set_animation('Move')
 	play()

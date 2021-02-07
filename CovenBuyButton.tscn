@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/CovenBuyButton.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Koven/KovenBuyModule/button_coven_little.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/LabelPrototype.tscn" type="PackedScene" id=3]
+
+[node name="CovenButton" type="TextureButton"]
+rect_pivot_offset = Vector2( 40, 40 )
+stretch_mode = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 90.1748, 166.789 )
+texture = ExtResource( 2 )
+
+[node name="Text" parent="Sprite" instance=ExtResource( 3 )]
+margin_left = -46.0
+margin_top = -23.0
+margin_right = 47.0
+margin_bottom = 20.0
+text = "1/10"
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="pressed" from="." to="." method="_on_CovenButton_pressed"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

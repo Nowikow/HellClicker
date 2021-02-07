@@ -186,7 +186,7 @@ animations = [ {
 } ]
 
 [node name="PeasantPrototypeMan" type="Area2D"]
-position = Vector2( -371.58, 800.096 )
+position = Vector2( 140.366, 1116.88 )
 script = ExtResource( 32 )
 
 [node name="PartOfBody" type="Node2D" parent="."]
